@@ -92,14 +92,14 @@ def smallest_int(numbers):
         True
     """
 
-    smallest = int()
-
-    for integer in numbers:
-        if numbers is not None:
-            if integer < smallest:
-                smallest[:] == integer
-
-    return smallest
+    if not numbers:
+        return None
+    else:
+        smallest = numbers[0]
+        for integer in numbers:
+                if integer < smallest:
+                    smallest = integer
+        return smallest
 
 
 def largest_int(numbers):
@@ -121,7 +121,14 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    if not numbers:
+        return None
+    else:
+        largest = numbers[0]
+        for integer in numbers:
+                if integer > largest:
+                    largest = integer
+        return largest
 
 
 def halvesies(numbers):
@@ -139,7 +146,12 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
-    return []
+    half_list = []
+
+    for number in numbers:
+        half_list.append(float(number) / 2)
+
+    return half_list
 
 
 def word_lengths(words):
@@ -151,7 +163,12 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    length_list = []
+
+    for word in words:
+        length_list.append(len(word))
+
+    return length_list
 
 
 def sum_numbers(numbers):

@@ -37,14 +37,16 @@ def long_words(words):
         >>> long_words(["all", "are", "tiny"])
         []
     """
-    words_over_four = []
+    ## lines 43-47 use a for loop; this approach works,
+    ## but was replaced with list comprehension
 
-    for word in words:
-        if len(word) > 4:
-            words_over_four.append(word)
-            # attempt at list comprehension on line 47
-            # this finds the correct # of words (3) but results in a list of 3x None
-            # words_over_four = [words_over_four.append(word) for word in words if len(word) > 4]
+    # words_over_four = []
+
+    # for word in words:
+    #     if len(word) > 4:
+    #         words_over_four.append(word)
+
+    words_over_four = [word for word in words if len(word) > 4]
 
     return words_over_four
 
@@ -64,11 +66,14 @@ def n_long_words(words, n):
         ['apples', 'bananas']
     """
 
-    words_of_len_n = []
+    # words_of_len_n = []
 
-    for word in words:
-        if len(word) > n:
-            words_of_len_n.append(word)
+    # for word in words:
+    #     if len(word) > n:
+    #         words_of_len_n.append(word)
+
+    ## replace the above steps with list comprehension
+    words_of_len_n = [word for word in words if len(word) > n]
 
     return words_of_len_n
 

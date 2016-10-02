@@ -47,7 +47,8 @@ def print_indices(items):
         2 Volvo
     """
 
-    print "Nothing at all"
+    for i, item in enumerate(items):
+        print i, item
 
 
 def foods_in_common(foods1, foods2):
@@ -78,7 +79,12 @@ def foods_in_common(foods1, foods2):
 
     """
 
-    return ['the wrong thing']
+    common_foods = set(foods1) & set(foods2)
+
+    common_foods = list(common_foods)
+    common_foods.sort()
+
+    return common_foods
 
 
 def every_other_item(items):
@@ -95,7 +101,7 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return ['the wrong thing']
+    return items[::2]
 
 
 def largest_n_items(items, n):
@@ -120,7 +126,13 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    if n == 0:
+        return []
+    else:
+        items.sort()
+        largest_n_items = items[-n:]
+
+        return largest_n_items
 
 
 #####################################################################

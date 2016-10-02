@@ -42,7 +42,7 @@ def long_words(words):
     for word in words:
         if len(word) > 4:
             words_over_four.append(word)
-            # attempt at list comprehension on line 46
+            # attempt at list comprehension on line 47
             # this finds the correct # of words (3) but results in a list of 3x None
             # words_over_four = [words_over_four.append(word) for word in words if len(word) > 4]
 
@@ -188,7 +188,12 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    sum_of_all = 0
+
+    for number in numbers:
+        sum_of_all += number
+
+    return sum_of_all
 
 
 def mult_numbers(numbers):
@@ -211,7 +216,15 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    if not numbers:
+        return 1
+    else:
+        prod_of_all = 1
+
+        for number in numbers:
+            prod_of_all *= number
+
+        return prod_of_all
 
 
 def join_strings(words):
@@ -231,7 +244,12 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    all_strings = ""
+
+    for word in words:
+        all_strings = all_strings + word
+
+    return all_strings
 
 
 def average(numbers):
@@ -254,7 +272,17 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
-    return 0
+    count = float(0)
+    total_sum = float(0)
+
+    if not numbers:
+        return None
+    else:
+        for number in numbers:
+            count += 1
+            total_sum += number
+            average = float(total_sum / count)
+        return average
 
 
 def join_strings_with_comma(words):
@@ -274,7 +302,7 @@ def join_strings_with_comma(words):
         'Pretzel'
     """
 
-    return ""
+    return ", ".join(words)
 
 
 def reverse_list(items):

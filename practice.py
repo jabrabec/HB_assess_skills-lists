@@ -328,7 +328,9 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    reversed_list = items
+
+    return reversed_list[::-1]
 
 
 def reverse_list_in_place(items):
@@ -353,8 +355,7 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
-
-    return []
+    items[:] = items[::-1]
 
 
 def duplicates(items):

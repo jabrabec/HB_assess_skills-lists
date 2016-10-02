@@ -1,4 +1,4 @@
-"""List Assessment 
+"""List Assessment
 
 Edit the functions until all of the doctests pass when
 you run this file.
@@ -17,7 +17,15 @@ def all_odd(numbers):
         []
     """
 
-    return ['the wrong thing']
+    odd_numbers = []
+
+    # for item in numbers:
+    #     if item % 2 == 1:
+    #         odd_numbers.append(item)
+
+    odd_numbers = [item for item in numbers if item % 2 == 1]
+
+    return odd_numbers
 
 
 def print_indices(items):

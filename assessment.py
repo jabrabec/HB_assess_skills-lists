@@ -17,12 +17,17 @@ def all_odd(numbers):
         []
     """
 
+    # initialize empty list for storing odd_numbers
     odd_numbers = []
 
+    # # non-list comprehension approach:
     # for item in numbers:
     #     if item % 2 == 1:
     #         odd_numbers.append(item)
 
+    # if list item is odd, modulus value will be 1; adds the list item
+    # to odd_numbers while iterating over the input list 'numbers' if
+    # '% 2 == 1' evaluates as true
     odd_numbers = [item for item in numbers if item % 2 == 1]
 
     return odd_numbers
@@ -47,6 +52,9 @@ def print_indices(items):
         2 Volvo
     """
 
+    # enumerate function take an iterator as its argument
+    # syntax for enumerate() allows for i, item to return as
+    # index, listitem[index] for a given list
     for i, item in enumerate(items):
         print i, item
 
@@ -79,8 +87,11 @@ def foods_in_common(foods1, foods2):
 
     """
 
+    # convert the two input lists into sets, and create a new set
+    # common_foods as their mathematical intersection
     common_foods = set(foods1) & set(foods2)
 
+    # convert common_foods to a list and sort it
     common_foods = list(common_foods)
     common_foods.sort()
 
@@ -101,6 +112,8 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
+    # items[::2] will return the whole set, from start to finish, with a
+    # step of 2, meaning every other item is returned
     return items[::2]
 
 
@@ -126,10 +139,16 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
+    # fail fast: n=0 means the largest 0 integers are queried,
+    # which is an empty list
     if n == 0:
         return []
     else:
+        # sort the input list; default is from smallest to largest
         items.sort()
+        # create new list of n items: [-n:] means the list will be read
+        # from left to right (smallest to largest) but will start n positions
+        # from the end, meaning only the largest n items are returned
         largest_n_items = items[-n:]
 
         return largest_n_items

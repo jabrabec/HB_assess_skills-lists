@@ -96,12 +96,16 @@ def smallest_int(numbers):
         >>> smallest_int([]) is None
         True
     """
-
+    # fail fast
     if not numbers:
         return None
     else:
+        # first input element is set to var 'smallest'
         smallest = numbers[0]
+        # iterate over all numbers in input list
         for integer in numbers:
+                # if the currently-read element is less than 'smallest'
+                # reset smallest = to current element
                 if integer < smallest:
                     smallest = integer
         return smallest
@@ -126,11 +130,16 @@ def largest_int(numbers):
         True
     """
 
+    # fail fast
     if not numbers:
         return None
     else:
+        # first input element is set to var 'largest'
         largest = numbers[0]
+        # iterate over all numbers in input list
         for integer in numbers:
+                # if the currently-read element is grearter than 'largest'
+                # reset largest = to current element
                 if integer > largest:
                     largest = integer
         return largest
@@ -151,9 +160,12 @@ def halvesies(numbers):
         [0.5, 2.5]
     """
 
+    # initialize empty list
     half_list = []
 
+    # iterate over all input elements
     for number in numbers:
+        # calculate half the input value and add it to half_list
         half_list.append(float(number) / 2)
 
     return half_list
@@ -168,9 +180,12 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
+    # initialize empty list
     length_list = []
 
+    # iterate over all input elements
     for word in words:
+        # calculate input element length and add it to length_list
         length_list.append(len(word))
 
     return length_list
@@ -193,9 +208,13 @@ def sum_numbers(numbers):
         0
     """
 
+    # initialize sum_of_all variable; also allows function to
+    # return 0 if empty list is given as function argument
     sum_of_all = 0
 
+    # iterate over all input elements
     for number in numbers:
+        # increase sum_of_all by the list element with each iteration
         sum_of_all += number
 
     return sum_of_all
@@ -221,12 +240,18 @@ def mult_numbers(numbers):
         1
     """
 
+    # fail fast; return 1 for empty product
     if not numbers:
         return 1
     else:
+        # intialize prod_of_all variable with value of 1
+        # because math (value of 1 doesn't impact output,
+        # value of 0 will never work)
         prod_of_all = 1
 
+        # iterate over all input elements
         for number in numbers:
+            # multiply sum_of_all by the list element with each iteration
             prod_of_all *= number
 
         return prod_of_all
@@ -249,9 +274,12 @@ def join_strings(words):
         ''
     """
 
+    # initialize empty string
     all_strings = ""
 
+    # iterate over all input elements
     for word in words:
+        # add the list element to all_strings with each iteration
         all_strings = all_strings + word
 
     return all_strings
@@ -277,16 +305,23 @@ def average(numbers):
     a feel free to provide a good solution here.)
     """
 
+    # initialize count & total_sum variables as floats = 0
+    # since these are floats, the final average returned will also be
     count = float(0)
     total_sum = float(0)
 
+    # fail fast
     if not numbers:
         return None
     else:
+        # iterate over all input elements
         for number in numbers:
+            # keep track of number of items in list with count
             count += 1
+            # calculate the sum of values in the list
             total_sum += number
-            average = float(total_sum / count)
+            # calculate mathmatical average
+            average = total_sum / count
         return average
 
 
@@ -333,9 +368,12 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    reversed_list = items
+    # initialize new reversed_list in order to not change original list
+    # reversed list is equated to items[] with step -1, which means input list
+    # is read backwards
+    reversed_list = items[::-1]
 
-    return reversed_list[::-1]
+    return reversed_list
 
 
 def reverse_list_in_place(items):
@@ -343,7 +381,7 @@ def reverse_list_in_place(items):
 
     Reverse the input list given, but do it "in place" --- that is,
     do not create a new list and return it, but modify the original
-    list.
+    listself.
 
     **Do not use** the python function `reversed()` or the method
     `list.reverse()`.
@@ -360,6 +398,9 @@ def reverse_list_in_place(items):
         >>> orig
         ['I', 'love', 'cookies']
     """
+
+    # items[:] specifies the original input is modified in place
+    # step -1 reads the items from last to first (i.e. reversed)
     items[:] = items[::-1]
 
 
@@ -389,15 +430,24 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
+    # initialize empty sets for tracking items as they're read from input
+    # list_of_dupes will be returned as a list at the end of the function, but
+    # starts as a set in order to not get duplicate-duplicates
     list_of_dupes = set()
     seen_items = set()
 
+    # iterate over all input elements
     for item in items:
+        # if item is new, it goes in the 'seen_items' list
+        #  because it has now been observed at least once
         if item not in seen_items:
             seen_items.add(item)
+        # items that ARE in seen_items already (implied condition:
+        # if item in seen_items) are added to set of duplicates
         else:
             list_of_dupes.add(item)
 
+    # convert list_of_dupes from a set to a list and sort it
     list_of_dupes = list(list_of_dupes)
     list_of_dupes.sort()
 
@@ -431,15 +481,26 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
+    # initialize empty list for tracking indices
     index_list = []
 
+    # iterate over all input elements
     for word in words:
+        # start index counter outside the while loop
         word_index = 0
+        # start a while loop that will iterate over the word until whole
+        # individual word is processed
         while word_index < len(word):
+            # add the index counter to index_list if word[index] matches
+            # 'letter' and break the loop so no further letters are read
             if word[word_index] == letter:
                 index_list.append(word_index)
                 break
+            # increment word_index with every repeat of the while loop until
+            # the letter is found or the whole word is read
             word_index += 1
+        # if the letter is never found, add None to list for that word in
+        # input 'words' list
         if word_index == len(word):
             index_list.append(None)
 

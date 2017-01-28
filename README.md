@@ -1,2 +1,2 @@
-# HB_assess_skills-lists
+# HB_assessment_skills-lists
 Repository for Hackbright Academy weekend assessment.
